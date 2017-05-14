@@ -41,13 +41,11 @@ app.disable('x-powered-by')
     next(err);
   })
   .use((err, req, res, next) => { // eslint-disable-line no-unused-vars
-    res
-      .status(err.status || 500)
-      .json({
-        message: err.message,
-        url: req.originalUrl,
-        error: err,
-      });
+    res.status(err.status || 500).json({
+      message: err.message,
+      url: req.originalUrl,
+      error: err,
+    });
   });
 
 export default app;
