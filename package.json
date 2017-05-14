@@ -1,0 +1,52 @@
+{
+  "title": "Inner Mind Consulting WWW",
+  "name": "innermind-www",
+  "version": "0.0.1",
+  "description": "ES6 Web Server",
+  "main": "index.js",
+  "private": true,
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JBreit/innermind-www.git"
+  },
+  "scripts": {
+    "build": "babel lib -d dist",
+    "serve": "node dist/index.js",
+    "start": "nodemon lib/index.js --exec babel-node",
+    "test": "mocha --compilers js:babel-register"
+  },
+  "author": {
+      "name": "JBreit",
+      "email": "<jason.breitigan@gmail.com>"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "bluebird": "^3.5.0",
+    "body-parser": "^1.17.1",
+    "connect-flash": "^0.1.1",
+    "connect-mongo": "^1.3.2",
+    "cookie-parser": "^1.4.3",
+    "cors": "^2.8.3",
+    "csurf": "^1.9.0",
+    "express": "^4.15.2",
+    "express-session": "^1.15.2",
+    "helmet": "^3.6.0",
+    "method-override": "^2.3.8",
+    "mongoose": "^4.9.9",
+    "morgan": "^1.8.1",
+    "passport": "^0.3.2",
+    "serve-favicon": "^2.4.2",
+    "winston": "^2.3.1"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.24.1",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-stage-2": "^6.24.1",
+    "babel-register": "^6.24.1",
+    "eslint": "^3.19.0",
+    "eslint-config-airbnb-base": "^11.1.3",
+    "eslint-plugin-import": "^2.2.0",
+    "mocha": "^3.4.0",
+    "nodemon": "^1.11.0"
+  }
+}
