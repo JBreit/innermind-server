@@ -1,9 +1,7 @@
-import { Router } from 'express';
+const express = require('express');
+const main = require('../controllers/main');
+const router = express.Router();
 
-const router = Router();
+router.get('/', main.index);
 
-router.get('/', (req, res) => { 
-  res.status(200).render('index.ejs', { title: 'Express Babel' });
-});
-
-export default router;
+module.exports = router;

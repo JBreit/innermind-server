@@ -1,13 +1,13 @@
-import express from 'express';
-import bodyParser from 'body-parser';
-import cookieParser from 'cookie-parser';
-import ejs from 'ejs';
-import favicon from 'serve-favicon';
-import path from 'path';
-import morgan from 'morgan';
-import methodOverride from 'method-override';
-import { stream } from './logger';
-import routes from './routes';
+const express = require('express');
+const bodyParser = require('body-parser');
+const cookieParser = require('cookie-parser');
+const ejs = require('ejs');
+const favicon = require('serve-favicon');
+const path = require('path');
+const morgan = require('morgan');
+const methodOverride = require('method-override');
+const logger = require('./logger');
+const routes = require('./routes');
 
 
 const app = express();
@@ -28,7 +28,7 @@ app.disable('x-powered-by')
   .use(cookieParser())
   .use(methodOverride('X-HTTP-Override'))
   .use(express.static(publicDir))
-  .use(morgan('combined', { steam: stream }))
+  .use(morgan('combined', { steam: logger.stream }))
 
   .use('/', routes)
 
@@ -48,4 +48,4 @@ app.disable('x-powered-by')
     });
   });
 
-export default app;
+module.exports = app;

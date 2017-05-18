@@ -1,6 +1,7 @@
-import app from './app';
+const http = require('http');
+const app = require('./app');
+const logger = require('./app/logger');
 
-const { HOST = '127.0.0.1' } = process.env;
-const { PORT = 8080 } = process.env;
+const { HOST = '127.0.0.1', PORT = 8080 } = process.env;
 
-app.listen(PORT, HOST, () => { process.stdout.write(`Server running at http://${HOST}:${PORT}/\n`); });
+http.createServer(app).listen(PORT, HOST, () => { logger.info(`Server running at http://${HOST}:${PORT}/\n`); });
